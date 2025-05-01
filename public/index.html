@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quaer.ai</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Quaer.ai</div>
+      <ul class="nav-links">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#login" class="btn-header">Iniciar Sesión</a></li>
+        <li><a href="#registro" class="btn-header">Registrarse</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="section active">
+    <div class="input-container" style="margin-bottom: 2rem;">
+      <input type="text" id="userInput" placeholder="Escribe el texto o link de la web que quieras resumir" />
+      <button id="sendButton" title="Enviar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#333" viewBox="0 0 24 24">
+          <path d="M12 4l1.41 1.41L7.83 11H20v2H7.83l5.58 5.59L12 20l-8-8z" />
+        </svg>
+      </button>
+    </div>
+    <div id="chat-wrapper">
+      <div id="chat" class="chat-container"></div>
+    </div>
+    <p id="contadorChats" class="contador">
+      Puedes resumir 10 textos de forma gratuita. Cada resumen consume 1 crédito.
+    </p>
+  </section>
+
+  <section id="planes" class="section hidden">
+    <h2>Elige tu Plan</h2>
+    <div class="planes-grid">
+      <div class="plan-card">
+        <h3>Plan Gratuito</h3>
+        <p><strong>0,00 €</strong> / mes</p>
+        <ul>
+          <li>10 créditos mensuales</li>
+          <li>1 resumen = 1 crédito</li>
+          <li>Ideal para probar la herramienta</li>
+        </ul>
+        <button class="btn-plan" onclick="suscribirse('Plan Gratuito', 0)">Suscribirse</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>Plan Mini</h3>
+        <p><strong>0,99 €</strong> / mes</p>
+        <ul>
+          <li>20 créditos mensuales</li>
+          <li>1 resumen = 1 crédito</li>
+          <li>Para uso ocasional</li>
+        </ul>
+        <button class="btn-plan" onclick="suscribirse('Plan Mini', 0.99)">Suscribirse</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>Plan Básico</h3>
+        <p><strong>1,99 €</strong> / mes</p>
+        <ul>
+          <li>50 créditos mensuales</li>
+          <li>1 resumen = 1 crédito</li>
+          <li>Perfecto para estudiantes</li>
+        </ul>
+        <button class="btn-plan" onclick="suscribirse('Plan Básico', 1.99)">Suscribirse</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>Plan Pro</h3>
+        <p><strong>2,99 €</strong> / mes</p>
+        <ul>
+          <li>100 créditos mensuales</li>
+          <li>1 resumen = 1 crédito</li>
+          <li>Ideal para uso frecuente</li>
+        </ul>
+        <button class="btn-plan" onclick="suscribirse('Plan Pro', 2.99)">Suscribirse</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section hidden">
+    <div class="contact-card">
+      <h2>Contacto</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Nombre" required />
+        <input type="email" placeholder="Correo electrónico" required />
+        <textarea placeholder="Tu mensaje..." required></textarea>
+        <button type="submit" class="btn-contact">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="login" class="section hidden">
+    <div class="login-card">
+      <h2>Iniciar Sesión</h2>
+      <form class="login-form">
+        <input type="email" placeholder="Correo electrónico" required />
+        <input type="password" placeholder="Contraseña" required />
+        <button type="submit" class="btn-login">Entrar</button>
+        <p class="register-link">¿No tienes cuenta? <a href="#registro">Regístrate</a></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="registro" class="section hidden">
+    <div class="login-card">
+      <h2>Registrarse</h2>
+      <form class="login-form">
+        <input type="text" placeholder="Nombre completo" required />
+        <input type="email" placeholder="Correo electrónico" required />
+        <input type="password" placeholder="Contraseña" required />
+        <button type="submit" class="btn-login">Crear cuenta</button>
+        <p class="register-link">¿Ya tienes cuenta? <a href="#login">Iniciar Sesión</a></p>
+      </form>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
